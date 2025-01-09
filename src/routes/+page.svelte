@@ -1,5 +1,4 @@
 <script>
-	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import HeroSlides from '$lib/layout/HeroSlides.svelte';
 
@@ -33,7 +32,7 @@
 	<div class="grid">
 		<article>
 			<h3>Event Production</h3>
-			<p>From corporate events to music festivals, we will make your live event a success.</p>
+			<p>From corporate events to music festivals, we will make your live event a success. Reach out to us today for a quote.</p>
 
 			<button onclick={navigateToProd}>Contact Production</button>
 		</article>
