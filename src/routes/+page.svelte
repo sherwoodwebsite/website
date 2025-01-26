@@ -8,6 +8,8 @@
 	// import Swiper styles
 	import 'swiper/css';
 
+	let {data} = $props();
+
 	let photos = [
 		{ largeURL: 'hero/1.jpg', thumbnailURL: '', width: 0, height: 0 }, // Add the correct thumbnail URL and dimensions if necessary
 		{ largeURL: 'hero/2.jpg', thumbnailURL: '', width: 0, height: 0 },

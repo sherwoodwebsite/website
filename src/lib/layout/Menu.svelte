@@ -1,5 +1,10 @@
 <script>
-  export let logoSrc = "/logo.png"; // Default logo path, can be overridden by passing a prop
+  import { page } from "$app/state";
+  import { PUBLIC_APIURL } from "$env/static/public";
+  import { makeURL } from '$lib/directusHelpers';
+
+  console.log("Menu page", page);
+  let logo = makeURL(page.data.global.logo.filename_disk); // Default logo path, can be overridden by passing a prop
 
   function goToForm() {
     window.location.href = "/production/contact";
@@ -8,7 +13,7 @@
 
 <nav class="menu-container">
   <ul class="menu">
-    <a href="/"><img src={logoSrc} class="logo" alt="Logo" /></a>
+    <a href="/"><img src={logo} class="logo" alt="Logo" /></a>
   </ul>
   <ul class="menu">
     <li><a href="/production">Event Production</a></li>

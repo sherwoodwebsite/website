@@ -6,14 +6,27 @@
     injectSpeedInsights();
 	inject({ mode: dev ? 'development' : 'production' });
 
+	import { makeURL } from '$lib/directusHelpers';
+
 	import Footer from '$lib/layout/Footer.svelte';
 	import Hamburger from '$lib/buttons/Hamburger.svelte';
 	import '@picocss/pico/css/pico.min.css';
 	import Menu from '$lib/layout/Menu.svelte';
 	import MobileMenu from '$lib/layout/MobileMenu.svelte';
 	let mobileMenuOpen = false; // A Svelte reactive variable to control menu state
+
+
+
+	let { data } = $props();
+	console.log(data);
 </script>
 
+
+<svelte:head>
+	<title>{data.global.title}</title>
+	<link rel="icon" href={makeURL(data.global.favicon.filename_disk)} />
+	<meta name="description" content={data.global.description} />
+</svelte:head>
 <div id="wrapper">
 	<header class="container">
 		<div id="big-menu">
