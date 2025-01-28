@@ -7,7 +7,7 @@
 	// import Swiper styles
 	import 'swiper/css';
 
-	// Declare the photos prop
+	// Simplified photos prop
 	export let photos = [];
 
 	onMount(() => {
@@ -33,9 +33,9 @@
 <div class="swiper">
 	<div class="swiper-wrapper">
 		<!-- Use #each to loop through photos -->
-		{#each photos as photo (photo.largeURL)}
+		{#each photos as photo (photo.id)}
 			<div class="swiper-slide">
-				<img src={photo.largeURL} alt="Slideshow photo" />
+				<img src={photo.url} alt="Slideshow photo" />
 			</div>
 		{/each}
 	</div>

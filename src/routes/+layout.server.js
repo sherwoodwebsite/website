@@ -1,6 +1,6 @@
 /** @type {import('./$types').LayoutServerLoad} */
 import getDirectusInstance from '$lib/directus';
-import { getHeroPhotos } from '$lib/directusHelpers';
+import { getFolderPhotos, getNavItems, getPages } from '$lib/directusHelpers';
 import { readItems } from '@directus/sdk';
 
 export async function load({ fetch }) {
@@ -17,6 +17,8 @@ export async function load({ fetch }) {
 				'social_links'
 			]
 		})),
-		heroPhotos: await getHeroPhotos(),
+		heroPhotos: await getFolderPhotos('hero_photos'),
+		navItems: await getNavItems(),
+        pages: await getPages(),
 	};
 }

@@ -7,13 +7,13 @@ export function makeURL(filename) {
 	return PUBLIC_APIURL + "/assets/" + filename;
 }
 
-export async function getHeroPhotos() {
+export async function getFolderPhotos(folderName) {
     const directus = getDirectusInstance(fetch);
     return directus.request(readFiles({
         filter: {
             folder: {
                 name: {
-                    _eq: 'hero_photos'
+                    _eq: folderName
                 }
             }
         },
@@ -22,6 +22,32 @@ export async function getHeroPhotos() {
             'filename_disk',
             'width',
             'height'
+        ]
+    }));
+}
+
+export async function getPages() {
+    const directus = getDirectusInstance(fetch);
+    return directus.request(readItems('pages', {
+        fields: [
+            'id',
+            'title',
+            'permalink',
+            'status',
+            'published_at',
+            'blocks.*',
+            'description'
+        ]
+    }));
+}
+
+export async function getNavItems() {
+    const directus = getDirectusInstance(fetch);
+    return directus.request(readItems('navigation', {
+        fields: [
+            'id',
+            'title',
+            'items.*'
         ]
     }));
 }

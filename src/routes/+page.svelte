@@ -1,22 +1,15 @@
 <script>
 	import { goto } from '$app/navigation';
 	import HeroSlides from '$lib/layout/HeroSlides.svelte';
+	import { makeURL } from '$lib/directusHelpers';
 
-	import Swiper from 'swiper';
-	import { Navigation, Autoplay } from 'swiper/modules';
-
-	// import Swiper styles
-	import 'swiper/css';
-
-	let {data} = $props();
-
-	let photos = [
-		{ largeURL: 'hero/1.jpg', thumbnailURL: '', width: 0, height: 0 }, // Add the correct thumbnail URL and dimensions if necessary
-		{ largeURL: 'hero/2.jpg', thumbnailURL: '', width: 0, height: 0 },
-		{ largeURL: 'hero/3.jpg', thumbnailURL: '', width: 0, height: 0 },
-		{ largeURL: 'hero/4.jpg', thumbnailURL: '', width: 0, height: 0 },
-		{ largeURL: 'hero/5.jpg', thumbnailURL: '', width: 0, height: 0 }
-	];
+	let { data } = $props();
+	
+	// Transform the photos to include the full URL
+	let photos = data.heroPhotos.map(photo => ({
+		id: photo.id,
+		url: makeURL(photo.filename_disk)
+	}));
 
 	function navigateToProd() {
 		goto('production/contact');

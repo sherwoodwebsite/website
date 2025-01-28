@@ -18,7 +18,8 @@
 
 
 	let { data } = $props();
-	console.log(data);
+	// console.log(data);
+	console.log(data.pages);
 </script>
 
 
