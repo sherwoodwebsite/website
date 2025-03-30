@@ -32,7 +32,7 @@ export async function getPages() {
         fields: [
             'id',
             'title',
-            'permalink',
+            'slug',
             'status',
             'published_at',
             'blocks.*',
