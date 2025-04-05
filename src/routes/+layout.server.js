@@ -1,5 +1,5 @@
 /** @type {import('./$types').LayoutServerLoad} */
-import getDirectusInstance from '$lib/directus';
+import { getDirectusInstance } from '$lib/directus';
 import { getFolderPhotos, getNavItems, getPages } from '$lib/directusHelpers';
 import { readItems } from '@directus/sdk';
 
